@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hungry/core/constant/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
+  final String label;
   final Function() onPressed;
+  final Widget? icon;
   final double? width;
 
-  const CustomButton({super.key, required this.onPressed, this.width});
+  const CustomButton({super.key, required this.onPressed, this.width, required this.label, this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +22,9 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      icon: Icon(Icons.login_outlined, color: AppColors.white, size: 24),
+      icon: icon,
       label: Text(
-        'Login',
+        label,
         style: TextStyle(color: AppColors.white, fontSize: 16),
       ),
     );

@@ -5,7 +5,8 @@ import '../../../core/constant/app_colors.dart';
 import '../../../core/constant/app_text_style.dart';
 
 class PasswordField extends StatefulWidget {
-  const PasswordField({super.key});
+  final String label;
+  const PasswordField({super.key, required this.label});
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
@@ -17,7 +18,7 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      label: 'Password',
+      label: widget.label,
       textInputType: TextInputType.visiblePassword,
       obscureText: _obscureText,
       suffixIcon: GestureDetector(

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/constant/app_assets.dart';
-import 'package:hungry/core/constant/app_colors.dart';
-import 'package:hungry/core/constant/app_text_style.dart';
-import 'package:hungry/core/widgets/custom_button.dart';
-import 'package:hungry/features/auth/widgets/custom_text_form_field.dart';
-import 'package:hungry/features/auth/widgets/password_field.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+import '../../../core/constant/app_assets.dart';
+import '../../../core/constant/app_colors.dart';
+import '../../../core/constant/app_text_style.dart';
+import '../../../core/widgets/custom_button.dart';
+import '../widgets/custom_text_form_field.dart';
+import '../widgets/password_field.dart';
+
+class SignupView extends StatefulWidget {
+  const SignupView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SignupView> createState() => _SignupViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignupViewState extends State<SignupView> {
   final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,24 +34,25 @@ class _LoginViewState extends State<LoginView> {
                   children: [
                     Gap(30),
                     SvgPicture.asset(AppAssets.logo),
-                    Gap(10),
-                    Text(
-                      'Welcome Back, Discover The Fast Food',
-                      style: AppTextStyle.regular16,
-                    ),
                     Gap(60),
+                    CustomTextFormField(
+                      label: 'Name',
+                      textInputType: TextInputType.emailAddress,
+                    ),
+                    Gap(16),
                     CustomTextFormField(
                       label: 'Email',
                       textInputType: TextInputType.emailAddress,
                     ),
                     Gap(16),
-                    PasswordField(label: 'Password',),
+                    PasswordField(label: 'Password'),
+                    Gap(16),
+                    PasswordField(label: 'Confirm Password'),
                     Gap(30),
                     CustomButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {}
-                      }, label: 'Login',
-                      icon: Icon(Icons.login_outlined, color: AppColors.white, size: 24),
+                      }, label: 'Signup',
                     ),
                   ],
                 ),
