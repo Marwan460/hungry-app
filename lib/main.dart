@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/features/auth/views/login_view.dart';
-import 'package:hungry/features/auth/views/signup_view.dart';
-import 'package:hungry/splash_view.dart';
+import 'package:hungry/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hungry',
       debugShowCheckedModeBanner: false,
-      home: SignupView(),
+      home: MainScreen(),
     );
   }
 }
