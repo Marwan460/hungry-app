@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hungry/core/constant/app_colors.dart';
 import 'package:hungry/main_screen.dart';
 
 void main() {
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hungry',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.white
+      ),
       home: MainScreen(),
     );
   }
