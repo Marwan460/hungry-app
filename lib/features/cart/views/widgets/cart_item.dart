@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/widgets/custom_button.dart';
 
-import '../../../../core/constant/app_assets.dart';
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/app_text_style.dart';
 
@@ -19,6 +18,7 @@ class CartItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: AppColors.white,
+      elevation: 4,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Row(
