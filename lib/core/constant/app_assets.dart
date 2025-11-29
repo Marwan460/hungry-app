@@ -3,4 +3,5 @@ abstract class AppAssets {
 
 
   static const String splash = 'assets/png_image/splash.png';
+  static const String test = 'assets/png_image/test.png';
 }

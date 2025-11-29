@@ -24,52 +24,56 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        backgroundColor: AppColors.white,
+        bottomNavigationBar: Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+            color: AppColors.primary,
           ),
-          color: AppColors.primary,
-        ),
-        child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          selectedItemColor: AppColors.white,
-          unselectedItemColor: Colors.grey.shade700,
-          onTap: (index) {
-            setState(() => _currentIndex = index);
-          },
-          backgroundColor: Colors.transparent,
-          type: BottomNavigationBarType.fixed,
+          child: BottomNavigationBar(
+            currentIndex: _currentIndex,
+            selectedItemColor: AppColors.white,
+            unselectedItemColor: Colors.grey.shade700,
+            onTap: (index) {
+              setState(() => _currentIndex = index);
+            },
+            backgroundColor: Colors.transparent,
+            type: BottomNavigationBarType.fixed,
 
-          elevation: 0,
-          items: [
-            buildBottomNavigationBarItem(
-              index: 0,
-              label: 'Home',
-              icon: Icon(CupertinoIcons.home),
-            ),
-            buildBottomNavigationBarItem(
-              index: 1,
-              label: 'Cart',
-              icon: Icon(CupertinoIcons.cart),
-            ),
-            buildBottomNavigationBarItem(
-              index: 2,
-              label: 'Order History',
-              icon: Icon(Icons.local_restaurant_sharp),
-            ),
-            buildBottomNavigationBarItem(
-              index: 3,
-              label: 'Profile',
-              icon: Icon(CupertinoIcons.profile_circled),
-            ),
-          ],
+            elevation: 0,
+            items: [
+              buildBottomNavigationBarItem(
+                index: 0,
+                label: 'Home',
+                icon: Icon(CupertinoIcons.home),
+              ),
+              buildBottomNavigationBarItem(
+                index: 1,
+                label: 'Cart',
+                icon: Icon(CupertinoIcons.cart),
+              ),
+              buildBottomNavigationBarItem(
+                index: 2,
+                label: 'Order History',
+                icon: Icon(Icons.local_restaurant_sharp),
+              ),
+              buildBottomNavigationBarItem(
+                index: 3,
+                label: 'Profile',
+                icon: Icon(CupertinoIcons.profile_circled),
+              ),
+            ],
+          ),
         ),
+        body: SafeArea(child: SafeArea(child: _screens[_currentIndex])),
       ),
-      body: SafeArea(child: SafeArea(child: _screens[_currentIndex])),
     );
   }
 
